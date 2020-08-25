@@ -19,12 +19,12 @@ label:
 	//asking a user to choose between logging in(if the user already has a account) or to create a account
 	int ch1;
 	SetConsoleTextAttribute(console, 15); // set color for the next print
-	while (cout << "\nEnter an OPTION number: " && !(cin >> ch1)) //This is for restricting the user to only numbers 
+	while (cout << "\nEnter an OPTION number: " && !(cin >> ch1)) //This is for restricting the user to only numbers
 	{
 		SetConsoleTextAttribute(console, 12); // set color for the next print
 		cout << "\n\n\nEnter number only... " << endl;
 		cin.clear(); //clearing all the stream
-		cin.ignore(); //getting ready for the next input 
+		cin.ignore(); //getting ready for the next input
 		SetConsoleTextAttribute(console, 15); // set color for the next print
 	}
 	cin.ignore();//built in function to clear the input buffer
@@ -41,7 +41,7 @@ label:
 		//checking if the file is really open to continue with
 		if (Create_User.is_open())
 		{
-			//creating two string variables 
+			//creating two string variables
 			string uname;//for username
 			string pwd;//for password
 					   //creating a boolean variable for login and assigning it to false
@@ -51,7 +51,7 @@ label:
 			//taking the username from the user
 			cout << "Enter Username: ";
 			cin >> uname;
-			//taking the corressponding password from the user 
+			//taking the corressponding password from the user
 			cout << "\nEnter Password: ";
 			cin >> pwd;
 			SetConsoleTextAttribute(console, 12); // set color for the next print
@@ -73,15 +73,15 @@ label:
 			//eof() is a built in function in the fstream library which returms 1 when it meets the end of file
 			while (!Create_User.eof())
 			{
-				//incrementing the variable counter to look for the line in the login file which matches the credentials of the user 
+				//incrementing the variable counter to look for the line in the login file which matches the credentials of the user
 				++counter;
 				// a string variable credentials
 				string credentials;
 				//two variables of the double type which will check if the credentials are found in the file or not
 				double x, y;
-				// using a getline function to read a line of file in each iteration 
+				// using a getline function to read a line of file in each iteration
 				getline(Create_User, credentials);
-				//find function returns string::npos if the string is not found in the line 
+				//find function returns string::npos if the string is not found in the line
 				x = credentials.find(uname, 0);//matching the username the user entered to the usernames in the file
 				y = credentials.find(pwd, 0);//matching the password the user entered to the password in the file
 											 // if the username is found in the line and also the password is found in the line of file the they wont return string::npos
@@ -187,9 +187,9 @@ label:
 				string credential;
 				//two variables of the double type which will check if the credentials are found in the file or not
 				double a;
-				// using a getline function to read a line of file in each iteration 
+				// using a getline function to read a line of file in each iteration
 				getline(User, credential);
-				//find function returns string::npos if the string is not found in the line 
+				//find function returns string::npos if the string is not found in the line
 				a = credential.find(username, 0);//matching the username the user entered to the usernames in the file
 				if (a != string::npos) //if the username is already existing then prompting the message that USERNAME already exists
 				{
@@ -217,7 +217,7 @@ label:
 		ofstream Create_User1;
 		//opening a file named Login_File in append mode so that it does not overwrite
 		Create_User1.open("Login_File.txt", ios::app);
-		//writing all the info that user entered in the file 
+		//writing all the info that user entered in the file
 		Create_User1 << "Username: " << username << "  " << "Password: " << password << "  " << "Phone Number: " << number << "  " << "Email: " << email << "  " << "Postal Code: " << postal_code << "\n";
 		//closing the file
 		Create_User1.close();
@@ -254,7 +254,7 @@ void Postal_Services::Speed_Post()
 	system("cls");
 	SetConsoleTextAttribute(console, 12); // set color for the next print
 	cin.ignore(); //clearing the buffer
-	cout << "\t\t\t                              << Sender INFORMATION >>  \n\n" << endl; //SENDER INFORMATION 
+	cout << "\t\t\t                              << Sender INFORMATION >>  \n\n" << endl; //SENDER INFORMATION
 	SetConsoleTextAttribute(console, 13); // set color for the next print
 	cout << "Enter Name: ";  //asking the name of SENDER
 	getline(cin, Sender_Name);
@@ -262,7 +262,7 @@ void Postal_Services::Speed_Post()
 	cout << "Enter Address: "; //asking the address of SENDER
 	getline(cin, Sender_Address);
 	cin.ignore();
-	cout << "Enter Pin Code: ";//asking the pincode 
+	cout << "Enter Pin Code: ";//asking the pincode
 	cin >> Sender_PinCode;
 	cin.ignore();
 	cout << "\nEnter City Name: "; //asking the city of SENDER
@@ -312,17 +312,17 @@ label:
 	cout << "Enter State: "; //asking the state of reciever
 	getline(cin, Reciever_State);
 	cin.ignore();
-	ofstream User_file; //for saving into file 
+	ofstream User_file; //for saving into file
 	User_file.open(userfile_creator, ios::app); //opening the file of user
-	User_file << "\t\t\t** Speed Post BOOKING *" << endl << endl; //writing in the file 
+	User_file << "\t\t\t** Speed Post BOOKING *" << endl << endl; //writing in the file
 
 	User_file << "SENDER INFORMATION:" << endl;
-	//writing all the details of sender information in the file using the USER_file pointer 
+	//writing all the details of sender information in the file using the USER_file pointer
 	User_file << "Name: " << Sender_Name << " Address: " << Sender_Address << " City: " << Sender_City << endl;
 	User_file << "State: " << Sender_State << " Pin Code: " << Sender_PinCode << " Weight of Box: " << Weight << endl;
 	cout << "\n\n" << endl;
 	User_file << " RECIEVER INFORMATION: " << endl;
-	//writing all the details of reciever information in the file using the USER_file pointer 
+	//writing all the details of reciever information in the file using the USER_file pointer
 	User_file << "Name: " << Reciever_Name << " Address: " << Reciever_Address << " City: " << Reciever_City << endl;
 	User_file << "State: " << Reciever_State << " Pin Code: " << Reciever_PinCode << endl;
 	User_file << "COST: " << Cost + 150 << " Rs. " << endl;
@@ -333,11 +333,11 @@ label:
 	Booking << "***** By a User: " << username << endl; //
 	Booking << " **** SPEED POST BOOKING *****" << endl;
 	Booking << "SENDER INFORMATION:" << endl; //sender information being written in the booking lists
-	//writing all the details of sender information in the file using the Booking pointer 
+	//writing all the details of sender information in the file using the Booking pointer
 	Booking << "Name: " << Sender_Name << " Address: " << Sender_Address << " City: " << Sender_City << endl;
 	Booking << "State: " << Sender_State << " Pin Code: " << Sender_PinCode << " Weight of Box: " << Weight << endl;
 	Booking << " RECIEVER INFORMATION: " << endl; //Reciever information being written in the booking lists
-	//writing all the details of reciever information in the file using the Booking pointer 
+	//writing all the details of reciever information in the file using the Booking pointer
 	Booking << "Name: " << Reciever_Name << " Address: " << Reciever_Address << " City: " << Reciever_City << endl;
 	Booking << "State: " << Reciever_State << " Pin Code: " << Reciever_PinCode << endl;
 	Booking << "COST: " << Cost + 150 << " Rs." << endl; //150 is because it's speed post BOOKING
@@ -362,7 +362,7 @@ void Postal_Services::Registered_post()
 	system("cls");
 	SetConsoleTextAttribute(console, 12); // set color for the next print
 	cin.ignore(); //clearing the buffer
-	cout << "\t\t\t                              << Sender INFORMATION >>  \n\n" << endl; //SENDER INFORMATION 
+	cout << "\t\t\t                              << Sender INFORMATION >>  \n\n" << endl; //SENDER INFORMATION
 	SetConsoleTextAttribute(console, 13); // set color for the next print
 	cout << "Enter Name: ";  //asking the name of SENDER
 	getline(cin, Sender_Name);
@@ -370,7 +370,7 @@ void Postal_Services::Registered_post()
 	cout << "Enter Address: "; //asking the address of SENDER
 	getline(cin, Sender_Address);
 	cin.ignore();
-	cout << "Enter Pin Code: ";//asking the pincode 
+	cout << "Enter Pin Code: ";//asking the pincode
 	cin >> Sender_PinCode;
 	cin.ignore();
 	cout << "\nEnter City Name: "; //asking the city of SENDER
@@ -419,18 +419,18 @@ label:
 	cout << "Enter State: "; //asking the state of reciever
 	getline(cin, Reciever_State);
 	cin.ignore();
-	ofstream User_file; //for saving into file 
+	ofstream User_file; //for saving into file
 	User_file.open(userfile_creator, ios::app); //opening the file of user
-	User_file << "\t\t\t** Registered Post BOOKING *" << endl << endl; //writing in the file 
+	User_file << "\t\t\t** Registered Post BOOKING *" << endl << endl; //writing in the file
 
 	User_file << "SENDER INFORMATION:" << endl;
-	//writing all the details of sender information in the file using the USER_file pointer 
+	//writing all the details of sender information in the file using the USER_file pointer
 	User_file << "Name: " << Sender_Name << " Address: " << Sender_Address << " City: " << Sender_City << endl;
 	User_file << "State: " << Sender_State << " Pin Code: " << Sender_PinCode << " Weight of Box: " << Weight << endl;
 
 	cout << "\n\n" << endl;
 	User_file << " RECIEVER INFORMATION: " << endl;
-	//writing all the details of reciever information in the file using the USER_file pointer 
+	//writing all the details of reciever information in the file using the USER_file pointer
 	User_file << "Name: " << Reciever_Name << " Address: " << Reciever_Address << " City: " << Reciever_City << endl;
 	User_file << "State: " << Reciever_State << " Pin Code: " << Reciever_PinCode << endl;
 	User_file << "COST: " << Cost + 75 << " Rs." << endl; //75 rupees is for delivery charges
@@ -441,11 +441,11 @@ label:
 	Booking << "***** By a User: " << username << endl; //
 	Booking << " **** Registered POST BOOKING *****" << endl;
 	Booking << "SENDER INFORMATION:" << endl; //sender information being written in the booking lists
-											  //writing all the details of sender information in the file using the Booking pointer 
+											  //writing all the details of sender information in the file using the Booking pointer
 	Booking << "Name: " << Sender_Name << " Address: " << Sender_Address << " City: " << Sender_City << endl;
 	Booking << "State: " << Sender_State << " Pin Code: " << Sender_PinCode << " Weight of Box: " << Weight << endl;
 	Booking << " RECIEVER INFORMATION: " << endl; //Reciever information being written in the booking lists
-												  //writing all the details of reciever information in the file using the Booking pointer 
+												  //writing all the details of reciever information in the file using the Booking pointer
 	Booking << "Name: " << Reciever_Name << " Address: " << Reciever_Address << " City: " << Reciever_City << endl;
 	Booking << "State: " << Reciever_State << " Pin Code: " << Reciever_PinCode << endl;
 	Booking << "COST: " << Cost + 75 << " Rs." << endl; //75 rupees is for delivery charges
@@ -469,7 +469,7 @@ void Postal_Services::Parcel_Booking()
 	system("cls");
 	SetConsoleTextAttribute(console, 12); // set color for the next print
 	cin.ignore(); //clearing the buffer
-	cout << "\t\t\t                              << Sender INFORMATION >>  \n\n" << endl; //SENDER INFORMATION 
+	cout << "\t\t\t                              << Sender INFORMATION >>  \n\n" << endl; //SENDER INFORMATION
 	SetConsoleTextAttribute(console, 13); // set color for the next print
 	cout << "Enter Name: ";  //asking the name of SENDER
 	getline(cin, Sender_Name);
@@ -477,7 +477,7 @@ void Postal_Services::Parcel_Booking()
 	cout << "Enter Address: "; //asking the address of SENDER
 	getline(cin, Sender_Address);
 	cin.ignore();
-	cout << "Enter Pin Code: ";//asking the pincode 
+	cout << "Enter Pin Code: ";//asking the pincode
 	cin >> Sender_PinCode;
 	cin.ignore();
 	cout << "\nEnter City Name: "; //asking the city of SENDER
@@ -526,17 +526,17 @@ label:
 	cout << "Enter State: "; //asking the state of reciever
 	getline(cin, Reciever_State);
 	cin.ignore();
-	ofstream User_file; //for saving into file 
+	ofstream User_file; //for saving into file
 	User_file.open(userfile_creator, ios::app); //opening the file of user
-	User_file << "\t\t\t** Parcel BOOKING *" << endl << endl; //writing in the file 
+	User_file << "\t\t\t** Parcel BOOKING *" << endl << endl; //writing in the file
 
 	User_file << "SENDER INFORMATION:" << endl;
-	//writing all the details of sender information in the file using the USER_file pointer 
+	//writing all the details of sender information in the file using the USER_file pointer
 	User_file << "Name: " << Sender_Name << " Address: " << Sender_Address << " City: " << Sender_City << endl;
 	User_file << "State: " << Sender_State << " Pin Code: " << Sender_PinCode << " Weight of Box: " << Weight << endl;
 	cout << "\n\n" << endl;
 	User_file << " RECIEVER INFORMATION: " << endl;
-	//writing all the details of reciever information in the file using the USER_file pointer 
+	//writing all the details of reciever information in the file using the USER_file pointer
 	User_file << "Name: " << Reciever_Name << " Address: " << Reciever_Address << " City: " << Reciever_City << endl;
 	User_file << "State: " << Reciever_State << " Pin Code: " << Reciever_PinCode << endl;
 	User_file << "COST: " << Cost + 75 << " Rs." << endl; //75 rupees is for delivery charges
@@ -547,11 +547,11 @@ label:
 	Booking << "***** By a User: " << username << endl; //
 	Booking << " **** Parcel BOOKING *****" << endl;
 	Booking << "SENDER INFORMATION:" << endl; //sender information being written in the booking lists
-											  //writing all the details of sender information in the file using the Booking pointer 
+											  //writing all the details of sender information in the file using the Booking pointer
 	Booking << "Name: " << Sender_Name << " Address: " << Sender_Address << " City: " << Sender_City << endl;
 	Booking << "State: " << Sender_State << " Pin Code: " << Sender_PinCode << " Weight of Box: " << Weight << endl;
 	Booking << " RECIEVER INFORMATION: " << endl; //Reciever information being written in the booking lists
-												  //writing all the details of reciever information in the file using the Booking pointer 
+												  //writing all the details of reciever information in the file using the Booking pointer
 	Booking << "Name: " << Reciever_Name << " Address: " << Reciever_Address << " City: " << Reciever_City << endl;
 	Booking << "State: " << Reciever_State << " Pin Code: " << Reciever_PinCode << endl;
 	Booking << "COST: " << Cost + 75 << " Rs." << endl; //75 rupees is for delivery charges
@@ -573,7 +573,7 @@ void Postal_Services::Money_Transfer()
 {
 	system("cls");
 	SetConsoleTextAttribute(console, 12); // set color for the next print
-	cout << "\t\t\t                              << Sender INFORMATION >>  \n\n" << endl; //SENDER INFORMATION 
+	cout << "\t\t\t                              << Sender INFORMATION >>  \n\n" << endl; //SENDER INFORMATION
 	SetConsoleTextAttribute(console, 13); // set color for the next print
 	cout << "Enter Name: ";//asking the name of SENDER
 	getline(cin, Sender_Name);
@@ -614,12 +614,12 @@ void Postal_Services::Money_Transfer()
 	ofstream User_file;
 	User_file.open(userfile_creator, ios::app);
 	User_file << "\t\t\t** MONEY TRANSFER *" << endl << endl;
-	//writing all the details of sender information in the file using the USER_file pointer 
+	//writing all the details of sender information in the file using the USER_file pointer
 	User_file << "SENDER INFORMATION:" << endl;
 	User_file << "Name: " << Sender_Name << " Address: " << Sender_Address << " City: " << Sender_City << endl;
 	User_file << "State: " << Sender_State << " Pin Code: " << Sender_PinCode << " Amount: " << Amount << " Rs. " << endl;
 	cout << "\n\n" << endl;
-	//writing all the details of reciever information in the file using the USER_file pointer 
+	//writing all the details of reciever information in the file using the USER_file pointer
 	User_file << " RECIEVER INFORMATION: " << endl;
 	User_file << "Name: " << Reciever_Name << " Address: " << Reciever_Address << " City: " << Reciever_City << endl;
 	User_file << "State: " << Reciever_State << " Pin Code: " << Reciever_PinCode << endl;
@@ -630,12 +630,12 @@ void Postal_Services::Money_Transfer()
 	Booking << "***** By a User: " << username << endl; //
 	Booking << " **** Money Transfer BOOKING *****" << endl;
 	Booking << "SENDER INFORMATION:" << endl; //sender information being written in the booking lists
-											  //writing all the details of sender information in the file using the Booking pointer 
+											  //writing all the details of sender information in the file using the Booking pointer
 	Booking << "Name: " << Sender_Name << " Address: " << Sender_Address << " City: " << Sender_City << endl;
 	Booking << "State: " << Sender_State << " Pin Code: " << Sender_PinCode << " Amount: " << Amount << " Rs. " << endl;
 
 	Booking << " RECIEVER INFORMATION: " << endl; //Reciever information being written in the booking lists
-												  //writing all the details of reciever information in the file using the Booking pointer 
+												  //writing all the details of reciever information in the file using the Booking pointer
 	Booking << "Name: " << Reciever_Name << " Address: " << Reciever_Address << " City: " << Reciever_City << endl;
 	Booking << "State: " << Reciever_State << " Pin Code: " << Reciever_PinCode << endl;
 	Booking << "\n\n " << endl;
@@ -658,7 +658,7 @@ void Postal_Services::ECard_Booking()
 	system("cls");
 	cin.ignore();
 	SetConsoleTextAttribute(console, 12); // set color for the next print
-	cout << "\t\t\t                              << Sender INFORMATION >>  \n\n" << endl; //SENDER INFORMATION 
+	cout << "\t\t\t                              << Sender INFORMATION >>  \n\n" << endl; //SENDER INFORMATION
 	SetConsoleTextAttribute(console, 13); // set color for the next print
 	cout << "Enter Name: "; //asking the name of SENDER
 	getline(cin, Sender_Name);
@@ -724,11 +724,11 @@ void Postal_Services::ECard_Booking()
 	Booking << "***** By a User: " << username << endl; //
 	Booking << " **** E-Card BOOKING *****" << endl;
 	Booking << "SENDER INFORMATION:" << endl; //sender information being written in the booking lists
-											  //writing all the details of sender information in the file using the Booking pointer 
+											  //writing all the details of sender information in the file using the Booking pointer
 	Booking << "Name: " << Sender_Name << " Address: " << Sender_Address << " City: " << Sender_City << endl;
 	Booking << "State: " << Sender_State << " Pin Code: " << Sender_PinCode << " CODE of CARD: " << Code << endl;
 	Booking << " RECIEVER INFORMATION: " << endl; //Reciever information being written in the booking lists
-												  //writing all the details of reciever information in the file using the Booking pointer 
+												  //writing all the details of reciever information in the file using the Booking pointer
 	Booking << "Name: " << Reciever_Name << " Address: " << Reciever_Address << " City: " << Reciever_City << endl;
 	Booking << "State: " << Reciever_State << " Pin Code: " << Reciever_PinCode << endl;
 	Booking << "Cost: " << cost;
@@ -759,7 +759,7 @@ void Postal_Services::DailyPostalBookingReport()
 				//eof() is a built in function in the fstream library which returms 1 when it meets the end of file
 		{
 			getline(Booking, list); //getting the words and storing it in the list variable
-			cout << list << endl; //now displaying all the orders 
+			cout << list << endl; //now displaying all the orders
 			cout << endl;
 		}
 	}
@@ -783,7 +783,7 @@ void Postal_Services::DeleteAccount()
 		cout << ". ";
 	}
 	//creating a object of ofstream class named temp_file
-	//it is a temporary file created to omit the currently opened account and write all others to this file 
+	//it is a temporary file created to omit the currently opened account and write all others to this file
 	ofstream temp_file;
 	//opening new_file in output mode so as to overwrite each time
 	temp_file.open("new_file.txt", ios::out);
@@ -850,8 +850,8 @@ void Postal_Services::User_Activity()
 	system("cls");
 	SetConsoleTextAttribute(console, 11); // set color for the next print
 	ifstream User_file; //for displaying the order placed by the user
-	string orders; //for getting the words from the file 
-	User_file.open(userfile_creator, ios::in); //ios::in is used for showing contents of the file on the CONSOLE 
+	string orders; //for getting the words from the file
+	User_file.open(userfile_creator, ios::in); //ios::in is used for showing contents of the file on the CONSOLE
 	if (User_file.is_open())
 	{
 		while (!User_file.eof())// a while loop which runs as long as end of file is not met
@@ -929,7 +929,7 @@ void admin_login::Login()
 			SetConsoleTextAttribute(console, 11); // set color for the next print
 			if (Create_User.is_open())
 			{
-			
+
 				while (!(Create_User.eof()))
 				{
 					getline(Create_User, line);
@@ -1010,6 +1010,6 @@ void admin_login::Login()
 			//jumping to label3
 			goto labela;
 		}
-		
+
 	}
 }
