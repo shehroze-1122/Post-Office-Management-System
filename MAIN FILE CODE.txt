@@ -1,6 +1,5 @@
 #include <iostream>
 #include <Windows.h>
-#include<string>
 #include "Header.h"
 
 int main()
@@ -11,9 +10,9 @@ label:
 	SetConsoleTextAttribute(console, 11); // set color for the next print
 	cout << "\n\n\n\t\t\t-------------------- < POST OFFICE MANAGEMENT SYSTEM > --------------------\n\n\n";
 	Postal_Services *user=new Postal_Services;
-	user->Login(); //for logging in the user
+	user->Login(); //for logging in the user 
 
-	while (1) //WHILE loop will be executed till the user enters zero
+	while (1) //WHILE loop will be executed till the user enters zero  
 	{
 		SetConsoleTextAttribute(console, 11); // set color for the next print
 		cout << "                  <<  ----------------------- ~ SERVICES OFFERED ~ ----------------------- >>\n\n\n" << endl;
@@ -22,7 +21,7 @@ label:
 	label1:
 		cout << endl << endl;
 		SetConsoleTextAttribute(console, 15); // set color for the next print
-		while (cout << "\nEnter an OPTION number: " && !(cin >> choice)) //This is for restricting the user to only numbers
+		while (cout << "\nEnter an OPTION number: " && !(cin >> choice)) //This is for restricting the user to only numbers 
 		{
 			cout << "\n Enter number only" << endl; //displayin' the message in case the user entered other a number
 			cin.clear(); //clearing all the stream
@@ -74,7 +73,7 @@ label:
 		default://if choice is any other number
 			SetConsoleTextAttribute(console, 12); // set color for the next print
 			cout << "Enter an appropriate option. " << endl; //because the option entered is wrong
-			goto label1;  //goto the statement where it would ask again the user about choice
+			goto label1;  //goto the statement where it would ask again the user about choice 
 		}
 		if (choice == 0)
 		{
